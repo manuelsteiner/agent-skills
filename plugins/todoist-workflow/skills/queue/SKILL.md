@@ -93,7 +93,10 @@ Summarise what changed and which files were touched.
 Then offer next steps via the `AskUserQuestion` tool (multi-select), acting only
 on explicit confirmation:
 
-- **Comment on the task** with a one-paragraph summary and the commit SHA.
+- **Commit** the changes with a concise commit message.
+- **Comment on the task** with a one-paragraph summary and the commit SHA. This
+  needs a commit to exist first — if "Commit" wasn't selected and no commit
+  exists yet for this work, commit before writing the comment.
 - **Complete the task** — only when the user confirms it is verified. Never on
   your own judgement. Passing tests are not evidence the user's intent was met.
 
