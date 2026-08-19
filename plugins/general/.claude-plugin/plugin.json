@@ -1,6 +1,6 @@
 {
-  "name": "unslop",
-  "description": "Cut AI tells from any writing and add human voice.",
+  "name": "general",
+  "description": "General-purpose skills not tied to a specific service.",
   "version": "0.1.0",
   "author": {
     "name": "Manuel Steiner"
@@ -8,8 +8,8 @@
   "repository": "https://github.com/manuelsteiner/claude-plugins",
   "license": "MIT",
   "keywords": [
-    "writing",
-    "editing",
-    "style"
+    "general",
+    "utility",
+    "writing"
   ]
 }

@@ -24,7 +24,7 @@ endpoint, so their plugin stays current when it changes.
 | Plugin             | Skills                                              |
 | ------------------ | --------------------------------------------------- |
 | `todoist-workflow` | `/todoist-workflow:queue`, `/todoist-workflow:capture` |
-| `unslop`           | `/unslop:unslop`                                    |
+| `general`          | `/general:unslop`                                   |
 
 ## Adding a plugin
 

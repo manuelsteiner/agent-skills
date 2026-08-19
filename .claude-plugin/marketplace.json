@@ -12,10 +12,10 @@
       "category": "productivity"
     },
     {
-      "name": "unslop",
-      "source": "./plugins/unslop",
-      "description": "Cut AI tells from any writing and add human voice.",
-      "category": "writing"
+      "name": "general",
+      "source": "./plugins/general",
+      "description": "General-purpose skills not tied to a specific service. Currently: unslop (cut AI tells from writing).",
+      "category": "utility"
     }
   ]
 }
