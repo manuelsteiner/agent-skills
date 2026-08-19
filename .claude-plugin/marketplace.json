@@ -10,6 +10,12 @@
       "source": "./plugins/todoist-workflow",
       "description": "Delegation-queue skills for Todoist. Requires Doist's connector plugin: /plugin marketplace add doist/todoist-mcp then /plugin install todoist@doist",
       "category": "productivity"
+    },
+    {
+      "name": "unslop",
+      "source": "./plugins/unslop",
+      "description": "Cut AI tells from any writing and add human voice.",
+      "category": "writing"
     }
   ]
 }
