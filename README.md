@@ -1,38 +1,32 @@
-# claude-plugins
+# agent-skills
 
-Personal Claude Code plugin marketplace.
+Personal, agent-agnostic skills. Each directory in [`skills/`](skills/) is a
+portable skill with a `SKILL.md` entry point.
 
 ## Install
 
-```
-/plugin marketplace add manuelsteiner/claude-plugins
-/plugin install todoist-workflow@manuelsteiner-claude-plugins
-```
+Point the skill directory used by each agent at this repository's `skills/`
+directory. For example:
 
-`todoist-workflow` needs the Todoist connector, which is maintained by Doist:
-
-```
-/plugin marketplace add doist/todoist-mcp
-/plugin install todoist@doist
+```sh
+ln -s /path/to/agent-skills/skills ~/.agents/skills
+ln -s ~/.agents/skills ~/.claude/skills
 ```
 
-Connector config is deliberately not vendored here — Doist maintains the
-endpoint, so their plugin stays current when it changes.
+The Todoist skills require a Todoist integration configured for the agent in
+use. This repository deliberately does not prescribe a client-specific MCP or
+connector configuration.
 
-## Plugins
+## Skills
 
-| Plugin             | Skills                                              |
-| ------------------ | --------------------------------------------------- |
-| `todoist-workflow` | `/todoist-workflow:queue`, `/todoist-workflow:capture` |
-| `general`          | `/general:unslop`                                   |
+| Skill | Purpose |
+| --- | --- |
+| `unslop` | Edit writing to remove common AI tells and add human voice. |
+| `todoist-capture` | Turn session observations into Todoist tasks for the current repository. |
+| `todoist-queue` | Pick up and work one delegated Todoist task for the current repository. |
 
-## Adding a plugin
+## Adding a skill
 
-1. Create `plugins/<name>/.claude-plugin/plugin.json`
-2. Add skills under `plugins/<name>/skills/<skill>/SKILL.md`
-3. Register it in `.claude-plugin/marketplace.json`
-4. Bump the plugin `version` so existing installs pick up the change
-
-Plugin `name` values are immutable slugs. Renaming one breaks existing installs
-unless you add a `renames` entry to `marketplace.json`. Avoid names that clash
-with plugins from other marketplaces, since skills are namespaced by plugin name.
+Create `skills/<skill-name>/SKILL.md` with portable YAML frontmatter containing
+at least `name` and `description`. Put supporting files beside it or in a shared
+subdirectory of `skills/` when several skills need the same reference.
