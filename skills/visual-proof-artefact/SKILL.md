@@ -10,9 +10,14 @@ description: Create and share a visual proof artefact for GUI work in a T3 Code 
 Use this skill only when `T3CODE_HOME` is set to a non-empty value. If it is
 unset, stop without capturing, uploading, or embedding an image.
 
-This skill requires `share-verification-artefact` on `PATH`. It accepts one
-local image path and prints one HTTPS URL. If the command is unavailable or
-fails, report that and do not use another upload mechanism.
+This skill requires `share-verification-artefact`. Resolve it in this order:
+
+1. The executable path in `VISUAL_PROOF_ARTEFACT_HELPER`, if set.
+2. `share-verification-artefact` on `PATH`.
+3. `$HOME/.local/bin/share-verification-artefact`, if it is executable.
+
+It accepts one local image path and prints one HTTPS URL. If no helper is
+available or it fails, report that and do not use another upload mechanism.
 
 ## When to create an artefact
 
@@ -31,11 +36,11 @@ available visual capture method. The result must be a local image file.
 Do not upload an image containing credentials, tokens, personal data, billing
 details, or other sensitive material unless the user explicitly asks for it.
 
-Run the helper with the absolute image path. Treat its complete standard output
-as the URL:
+Run the resolved helper with the absolute image path. Treat its complete
+standard output as the URL:
 
 ```sh
-share-verification-artefact /absolute/path/to/image.png
+"$artefact_helper" /absolute/path/to/image.png
 ```
 
 If you created a temporary capture solely for this artefact, delete that local
