@@ -38,6 +38,11 @@ as the URL:
 share-verification-artefact /absolute/path/to/image.png
 ```
 
+If you created a temporary capture solely for this artefact, delete that local
+file and any empty temporary directory after the upload attempt. Keep the URL
+before cleanup. Never delete an image supplied by the user or an existing
+project file.
+
 Embed the URL as a linked inline image:
 
 ```md
