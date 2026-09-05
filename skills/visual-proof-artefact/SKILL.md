@@ -10,11 +10,11 @@ description: Create and share a visual proof artefact for GUI work in a T3 Code 
 Use this skill only when `T3CODE_HOME` is set to a non-empty value. If it is
 unset, stop without capturing, uploading, or embedding an image.
 
-This skill requires `share-verification-artefact`. Resolve it in this order:
+This skill requires `share-agent-artefact`. Resolve it in this order:
 
-1. The executable path in `VISUAL_PROOF_ARTEFACT_HELPER`, if set.
-2. `share-verification-artefact` on `PATH`.
-3. `$HOME/.local/bin/share-verification-artefact`, if it is executable.
+1. The executable path in `AGENT_ARTEFACT_HELPER`, if set.
+2. `share-agent-artefact` on `PATH`.
+3. `$HOME/.local/bin/share-agent-artefact`, if it is executable.
 
 It accepts one local image path and prints one HTTPS URL. If no helper is
 available or it fails, report that and do not use another upload mechanism.
