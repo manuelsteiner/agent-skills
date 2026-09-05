@@ -26,7 +26,7 @@ when the user needs to retrieve it remotely, or when the user explicitly asks
 to share a file.
 
 Do not upload ordinary source files, intermediate output, or arbitrary local
-files merely because they were mentioned. Use `visual-proof-artefact` for
+files merely because they were mentioned. Use `share-visual-proof-artefact` for
 visual evidence and inline image previews.
 
 Do not upload credentials, tokens, private configuration, personal data, or

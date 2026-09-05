@@ -1,9 +1,9 @@
 ---
-name: visual-proof-artefact
+name: share-visual-proof-artefact
 description: Create and share a visual proof artefact for GUI work in a T3 Code session when the user asks or visual evidence is needed.
 ---
 
-# Visual proof artefact
+# Share visual proof artefact
 
 ## Prerequisites
 
