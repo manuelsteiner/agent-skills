@@ -20,6 +20,19 @@ Bandcamp is acceptable for a known Bandcamp download or when MusicBrainz has no 
 
 Preserve deliberate display choices. Release-era display names can be preferable to a later canonical rename, such as `Machine Gun Kelly` instead of `mgk`. Keep meaningful hidden-track titles and intentional concise titles. Do not replace correct metadata for cosmetic conformity.
 
+## Settled provenance and exceptions
+
+Use [the settled exception registry](settled-library-exceptions.json) for decisions that have already been researched. It has two small, versioned structures:
+
+- `artist_normalizations` maps a known display variant to its settled library spelling. `KoRn` to `Korn` and `Bliss N Eso` to `Bliss n Eso` are established normalizations. They are safe to apply after the album's release structure has been audited. They are not fresh naming decisions.
+- `albums` records exact `albumartist` and `album` pairs with `provenance` of `bandcamp` or `manual`, plus optional `expected_disctotal`, `present_discs`, `follow_up`, and `notes`.
+
+The helper reports one provenance status per album: `musicbrainz`, `bandcamp`, `manual`, `unknown`, or `conflicting`. An actual MusicBrainz UUID gives `musicbrainz`. A registered Bandcamp or manual entry is settled provenance even without a UUID. Only `unknown` and `conflicting` raise a provenance issue. Its path fields also separate the literal database path from a case-aware path resolved beneath beets' configured `directory`; a relocated database path with an existing active file is informational, not a missing-file issue.
+
+An accepted partial release may preserve known disc and release structure without assigning the complete release MBID. `(həd) p.e. - Broke` is the current example. Its Disc 1 files retain `disctotal=2`, it stays on the `future-replacement` follow-up list, and it is not an unknown-metadata defect. If its recorded structure stops matching the exception, investigate it again.
+
+Add a registry entry only after the user has settled the provenance or exception. The registry is policy data, not a substitute for release verification. For Bandcamp entries, still confirm during the write stage that `zero` kept URL-shaped values out of serialized MusicBrainz tags.
+
 ## Inspect and evaluate
 
 Use scoped queries. Quote album names as needed for the active shell.

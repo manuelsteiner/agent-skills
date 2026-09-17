@@ -7,6 +7,10 @@ description: Conservatively audit and clean an existing beets music library albu
 
 Use this skill for an existing beets library. The aim is a correct, pleasant library, not maximum retagging. Preserve known-good metadata and treat one album as the unit of any persistent change.
 
+## Portability
+
+This is standard Markdown plus a Python helper. It works with any agent that can read the skill, run `python3`, and access a configured beets installation. It does not depend on a particular agent API, connector, or shell. The helper finds its adjacent policy files and the active beets configuration at runtime.
+
 ## Start safely
 
 Choose the mode from the request. Default to `guided`.
@@ -27,7 +31,9 @@ For a library-wide audit or queue, use the included read-only inspector. It load
 python3 skills/beets-library-cleanup/scripts/album_state.py --all > /tmp/beets-albums.json
 ```
 
-It flags observable signals such as mojibake, missing art, `disc=0`, and `.1.flac` collisions. It does not decide release identity. Prioritize clear mojibake, artist or album-artist inconsistency, absent or suspicious release identity, disc problems, missing art, pending moves, then cosmetic work. Use `beet ls` to inspect candidates in detail.
+It reports active configured paths separately from literal database paths, current-root artwork separately from `$artpath`, structured provenance, and settled exceptions. It does not decide release identity. Prioritize unknown or conflicting provenance, mojibake, numbering or duplicate-track problems, missing active paths, genuinely missing art, pending normalization, then cosmetic work. A missing MBID, relocated database path, stale `$artpath` with a valid root `cover.jpg`, or a documented exception is not a priority signal by itself. Use `beet ls` to inspect candidates in detail.
+
+The inspector reads [the settled exception registry](references/settled-library-exceptions.json). Established artist rules are reported as `established_normalizations`, not manual-investigation findings. Apply one only after the album has passed structural audit.
 
 Select the next album from that queue, but persist changes and verify results for only that album. Keep a short run record with `DONE`, `NEEDS REVIEW`, and `SKIPPED` entries and their reasons.
 

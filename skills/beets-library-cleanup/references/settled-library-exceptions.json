@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "artist_normalizations": {
+    "KoRn": "Korn",
+    "Bliss N Eso": "Bliss n Eso"
+  },
+  "albums": [
+    {
+      "albumartist": "After Hours",
+      "album": "A Heros Turf",
+      "provenance": "bandcamp",
+      "notes": "Known Bandcamp-backed release. No MusicBrainz release UUID is required."
+    },
+    {
+      "albumartist": "(həd) p.e.",
+      "album": "Broke",
+      "provenance": "manual",
+      "expected_disctotal": 2,
+      "present_discs": [1],
+      "follow_up": "future-replacement",
+      "notes": "Intentional partial copy of Disc 1 of the Japanese 2×CD edition. Preserve Disc 1 and disctotal=2 without assigning the complete release MBID."
+    }
+  ]
+}
