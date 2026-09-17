@@ -22,6 +22,7 @@ connector configuration.
 | Skill | Purpose |
 | --- | --- |
 | `unslop` | Edit writing to remove common AI tells and add human voice. |
+| `beets-library-cleanup` | Conservatively audit and clean a beets music library album by album. |
 | `todoist-capture` | Turn session observations into Todoist tasks for the current repository. |
 | `todoist-queue` | Pick up and work one delegated Todoist task for the current repository. |
 
