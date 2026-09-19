@@ -41,7 +41,7 @@ Select the next album from that queue, but persist changes and verify results fo
 
 1. Inspect the current fields, paths, and disc structure. For repeatable structured output, run `album_state.py --album "Album Name"`. Also use a rich `beet ls` listing when evaluating metadata.
 2. For an album already catalogued, ask beets for candidates with `beet import -a -W -C -M -L album:"Album Name"`. Do not accept the first or highest-scoring candidate by default.
-3. Compare candidate release structure with the local files. If a better MusicBrainz release is known, compare it with `--search-id MUSICBRAINZ_RELEASE_UUID`. Prefer structural and provenance evidence over score.
+3. Compare candidate release structure with the local files. If a better MusicBrainz release is known, compare it with `--search-id MUSICBRAINZ_RELEASE_UUID`. Prefer exact structural candidates over merely plausible matches, then use the original-era tie-breaker in the policy reference. Structural and provenance evidence still outweigh score.
 4. Apply only under the selected mode. After applying, verify track and disc numbering. Use `beet modify -M -W` for deliberate database-only exceptions before the tag-write stage.
 5. Always run `beet write -p album:"Album Name"` before `beet write album:"Album Name"`. Stop on a surprising diff.
 6. Always run `beet move -p album:"Album Name"` before `beet move album:"Album Name"`. Check the preview again afterward. Let beets resolve a known `.1.flac` collision with scoped move passes until it reports `Moving 0 items`. Never delete collision files by hand first.
